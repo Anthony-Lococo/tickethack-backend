@@ -7,6 +7,7 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var trajetsRouter = require("./routes/trajets");
+var bookedRouter = require("./routes/booked");
 
 var app = express();
 const cors = require("cors");
@@ -21,5 +22,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/trajets", trajetsRouter);
+app.use("/booked", bookedRouter);
 
 module.exports = app;
