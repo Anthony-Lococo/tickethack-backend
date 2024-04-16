@@ -22,6 +22,7 @@ router.get("/search", (req, res) => {
             if (
               req.query.arrival === value.arrival &&
               reqDate.getDate() === value.date.getDate() &&
+              reqDate.getMonth() === value.date.getMonth() &&
               reqDate.getFullYear() === value.date.getFullYear()
             ) {
               findTravel.push(value);
