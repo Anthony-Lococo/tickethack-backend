@@ -17,7 +17,9 @@ router.get("/select", (req, res) => {
 });
 
 router.delete("/delete", (req, res) => {
-  Cart.deleteOne({ id: req.query.id }).then((data) => console.log(data));
+  Cart.deleteOne({ id: req.query.id }).then((data) =>
+    res.json({ result: true, message: data })
+  );
 });
 
 module.exports = router;
