@@ -23,15 +23,7 @@ router.delete("/delete", (req, res) => {
 });
 
 router.delete("/deletemany", (req, res) => {
-  let arr = [];
-  Cart.find().then((data) => {
-    for (value of data) {
-      arr.push(value._id);
-    }
-    for (let i = 0; i < arr.length; i++) {
-      Cart.deleteOne({ id: arr[i] }.then((data) => console.log(data)));
-    }
-  });
+  Cart.deleteMany({}).then((data) => res.json({ result: true, message: data }));
 });
 
 module.exports = router;
