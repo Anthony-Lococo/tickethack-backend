@@ -5,11 +5,15 @@ require("../models/connection");
 
 router.post("/", (req, res) => {
   const newBooked = new Booked({
-    departure: req.body.departure,
-    arrival: req.body.arrival,
-    date: req.body.data,
+    travel: req.body.travel,
   });
   newBooked.save().then((data) => console.log(data));
+});
+
+router.get("/results", (req, res) => {
+  Booked.find()
+    .populate("travel")
+    .then((data) => res.json({ result: true, message: data }));
 });
 
 module.exports = router;
